@@ -8,6 +8,16 @@ import QCR from "./Assets/QCR.png";
 import Quizboys from "./Assets/Quizboys.png";
 
 function App() {
+
+  const display = () => {
+setPlayDisplay(true)
+setWorkDisplay(false)
+  }
+   const displayNone = () => {
+			setPlayDisplay(false);
+			setWorkDisplay(false);
+		};
+
   const [workDisplay, setWorkDisplay] = useState(false)
     const [playDisplay, setPlayDisplay] = useState(false);
 	const classes = useStyles();
@@ -15,7 +25,7 @@ function App() {
 		<Grid container className={classes.home}>
 			<Grid container className={classes.container}>
 				<Grid item className={classes.imageHolder}>
-					<Button onClick={() => setPlayDisplay(true)} variant="contained">
+					<Button onClick={display} variant="contained">
 						PLAY
 					</Button>
 				</Grid>
@@ -28,7 +38,7 @@ function App() {
 					</a>
 				</Grid>
 				<Grid item className={classes.imageHolder}>
-					<Button onClick={() => setWorkDisplay(false)} variant="contained">
+					<Button onClick={displayNone} variant="contained">
 						HOME
 					</Button>
 				</Grid>
@@ -66,9 +76,9 @@ function App() {
 					</Button>
 				</Grid>
 				<Grid item className={classes.imageHolderMain}>
-					{/* <Typography className={classes.header}>
+					<Typography className={classes.header}>
 						Rob Lark Full Stack Web Developer
-					</Typography> */}
+					</Typography>
 					<img className={classes.image} src={home} alt="" />
 				</Grid>
 				<Grid item className={classes.imageHolder}>
